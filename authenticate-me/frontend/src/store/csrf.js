@@ -1,28 +1,31 @@
 import Cookies from 'js-cookie';
 
-export async function fetch (url, options = {}) {
-    options.method = options.method || 'GET';
+export async function fetch(url, options = {}) {
 
-    options.headers = options.headers || {};
+  options.method = options.method || 'GET';
 
-    if (options.method.toUpperCase() !== 'GET') {
-        options.headers['Content-Type'] =
-          options.headers['Content-Type'] || 'application/json';
-        options.headers['XSRF-Token'] = Cookies.get('XSRF-TOKEN');
-    }
+  options.headers = options.headers || {};
 
-    const res = await window.fetch(url, options);
+  if (options.method.toUpperCase() !== 'GET') {
+    options.headers['Content-Type'] =
+      options.headers['Content-Type'] || 'application/json';
+    options.headers['XSRF-Token'] = Cookies.get('XSRF-TOKEN');
+  }
 
-    const contentType = res.headers.get('content-type');
-    
-    if (contentType && contentType.includes('application/json')) {
-      const data = await res.json();
-      res.data = data;
-    }
+  const res = await window.fetch(url, options);
 
-    if (res.status >= 400) throw res;
+  const contentType = res.headers.get('content-type');
+  if (contentType && contentType.includes('application/json')) {
+    const data = await res.json();
+    res.data = data;
+  }
 
-    return res;
+  if (res.status >= 400) throw res;
+
+  return res;
 }
 
-export default fetch;
+export function restoreCSRF() {
+    return fetch('/api/csrf/restore');
+};
+
