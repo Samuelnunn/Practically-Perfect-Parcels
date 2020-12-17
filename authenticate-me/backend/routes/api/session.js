@@ -27,6 +27,12 @@ asyncHandler(async (req, res, next) => {
   })
 );
 
+router.delete('/', (__req, res) => {
+    res.clearCookie('token');
+    return res.json({ message: 'success'});
+    }
+);
+
 
 
 module.exports = router;
