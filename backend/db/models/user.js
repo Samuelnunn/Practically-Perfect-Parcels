@@ -4,6 +4,20 @@ const { Validator } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 100]
+      },
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 100]
+      },
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -20,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [3, 256]
+        len: [1, 100]
       },
     },
     hashedPassword: {
@@ -52,7 +66,8 @@ module.exports = (sequelize, DataTypes) => {
     
   });
 User.associate = function(models) {
-  // associations can be defined here
+  User.hasMany(models.ShoppingCart, {foreignKey: 'shopperId'});
+  User.hasMany(models.ShoppingCart, {foreignKey: 'shopperId'});
 };
 
 User.prototype.toSafeObject = function() {
