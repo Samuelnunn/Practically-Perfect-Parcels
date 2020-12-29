@@ -67,7 +67,6 @@ module.exports = (sequelize, DataTypes) => {
   });
 User.associate = function(models) {
   User.hasMany(models.ShoppingCart, {foreignKey: 'shopperId'});
-  User.hasMany(models.ShoppingCart, {foreignKey: 'shopperId'});
 };
 
 User.prototype.toSafeObject = function() {
@@ -98,9 +97,11 @@ if (user && user.validatePassword(password)) {
   }
 };
 
-User.signup = async function ({ username, email, password }) {
+User.signup = async function ({ firstName, lastName, username, email, password }) {
   const hashedPassword = bcrypt.hashSync(password);
   const user = await User.create({
+    firstName,
+    lastName,
     username,
     email,
     hashedPassword,

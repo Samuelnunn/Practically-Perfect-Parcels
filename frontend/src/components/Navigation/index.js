@@ -15,8 +15,8 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink className="navigationButtons" to="/login">Log In</NavLink>
+        <NavLink className="navigationButtons" to="/signup">Sign Up</NavLink>
       </>
     );
   }
@@ -24,7 +24,11 @@ function Navigation({ isLoaded }){
   return (
     <ul>
       <li>
-        <NavLink exact to="/">Home</NavLink>
+        <NavLink className="navigationButtons" exact to="/" >
+        <img src="https://d1fdloi71mui9q.cloudfront.net/tvlc0BuRtq419gf3E6w7_5WATz9hU3H8m5Q8g"
+         alt="Profile" data-testid="ProfileImage" display="flex" height='100px' width='100px' background-color='blue' >
+        </img>
+        </NavLink>
         {isLoaded && sessionLinks}
       </li>
     </ul>

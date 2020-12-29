@@ -1,1 +1,22 @@
 /* TODO Add site wide styles */
+.title-of-page {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    min-width: 800px;
+    padding-top: none;
+    align-items:stretch;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#homeButton {
+   background-color: aliceblue;
+}
+
+.navigationButtons {
+    display: flex;
+    justify-content: space-around;
+}

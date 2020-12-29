@@ -26,7 +26,7 @@ function LoginFormPage() {
     }
 
     return (
-        <div className={'container'}>
+        <div className={'login-container'}>
         <form onSubmit={handleSubmit} className={'form'}>
             <ul className={'input-field'}>
                 {errors.map((error, i) => <li key={i}>{error}</li>)}    
