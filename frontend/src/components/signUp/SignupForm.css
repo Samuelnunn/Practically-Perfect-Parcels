@@ -1,22 +1,8 @@
 
-body {
-    /* background: rgb(219,226,239); */
-    /* background: radial-gradient(circle, rgba(219,226,239,1) 2%, rgba(63,114,175,1) 100%); */
-    background-color: #efe2ba;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:  #f9f7f7;
-    font-family: 'Headland One', serif;
-    font-family: 'Merriweather', serif;
-}
 
 .container {
     background-color: #3F72AF;
-    height: 740px;
-    width: 520px;
-    margin: 0 auto;
+    margin: 10px;
     border-radius: 5px;
     box-shadow: 10px 10px 8px 8px rgba(39, 58, 228, 0.30);
     display: flex;
@@ -24,12 +10,11 @@ body {
     justify-content: center;
     align-items: center;
     opacity: 0.9;
-
 }
 
 .container:hover {
   box-shadow: none;
-  transition: 4s;
+  transition: 3s;
 }
 
 .input-field {
@@ -42,11 +27,6 @@ body {
   
 }
 
-
-
-
-
-
 .button {
   position:relative;
   left: 39%;
@@ -57,7 +37,6 @@ body {
   padding: 16px 36px;
   margin-top: 20px;
   margin-bottom: -30px; 
-  /* margin-left: 205px; */
   box-shadow: 0px 4px 15px -5px rgba(0,0,0,0.65);
   color: #112d4e;
   opacity: 0.9;
@@ -83,19 +62,7 @@ body {
 
 
 
-input {
-    box-sizing: border-box;
-    background: transparent;
-    width: 80%;
-    border: none;
-    border-bottom: 1px solid #dbe2ef;
-    margin-left: 50px;
-    padding: 20px 6px 12px 36px;
-    font-size: 19px;
-    outline: none;
-   color: #dbe2ef;
- 
-}
+
 
 
 

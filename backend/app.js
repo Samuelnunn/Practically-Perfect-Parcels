@@ -16,6 +16,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.json());
+
 //only eneables corse in development ()
 if (!isProduction) {
     app.use(cors());

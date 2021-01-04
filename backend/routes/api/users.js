@@ -5,7 +5,7 @@ const { check } = require('express-validator');
 
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, Product, ShoppingCart } = require('../../db/models');
 
 const validateSignup = [
     check('firstName')
@@ -41,7 +41,10 @@ router.post(
       const user = await User.signup({ firstName, lastName, username, email, password });
   
       await setTokenCookie(res, user);
-  
+      await ShoppingCart.create({
+        quantity: 0,
+        shopperId: user.id
+      });
       return res.json({
         user,
       });
