@@ -5,3 +5,8 @@
    position: relative;
    align-items: stretch;
 }
+
+.navigationButtons {
+display: flex;
+justify-content: space-around;
+}

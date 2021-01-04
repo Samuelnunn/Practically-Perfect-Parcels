@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllProducts} from '../../store/products';
 import { addItemToTheCart } from '../../store/cart';
-import { addReviewToThePage } from '../../store/reviews'
+import { addReviewToThePage } from '../../store/reviews';
+import './ProductList.css';
 
 
 
@@ -15,8 +16,7 @@ const Product = ({oneProduct}) => {
     const [cartId ] = useState(1);
     const [review, setReview] = useState('');
 
-    const updateReview = (e) => setReview(e.target.value);
-
+   
     
     // useEffect(() => {
     //     const singleProductId = oneProduct.id;
@@ -48,7 +48,7 @@ const Product = ({oneProduct}) => {
                 <div>
                     <input type='text' name='review' id='review'
                     placeholder='Write a Review'
-                     value={review} onchange={updateReview}
+                     value={review} onchange={e => { setReview(e.target.value) }}
                     >
                     </input>
                     {<button onClick={handleReviewClick}>Submit Review</button>}
