@@ -24,7 +24,7 @@ function Navigation({ isLoaded }){
   return (
     <ul id='top-navigation-bar'>
       <li>
-        <NavLink className="navigationButtons" exact to="/home" >
+        <NavLink className="navigationButtons" to="/home" >
         <img src="https://d1fdloi71mui9q.cloudfront.net/tvlc0BuRtq419gf3E6w7_5WATz9hU3H8m5Q8g"
          alt="Profile" data-testid="ProfileImage" display="flex" height='100px' width='100px' border-radius="50%" className='homeButton' >
         </img>

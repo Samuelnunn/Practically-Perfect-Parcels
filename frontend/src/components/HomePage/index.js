@@ -1,19 +1,11 @@
-
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ProductsList from '../ProductsList'
 
-
-
-
-
-
 const Home = () => {
-    
     const sessionUser = useSelector(state => {
         return state.session.user;  
     })
-    console.log(sessionUser)
 
     return (
         <div>
@@ -31,7 +23,7 @@ const Home = () => {
                 </div>
             </div>
         </div>
-    )
-    
+    )  
 }
+
 export default Home;

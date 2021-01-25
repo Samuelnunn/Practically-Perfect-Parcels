@@ -15,4 +15,13 @@ router.post(`/`, asyncHandler( async(req, res, next) => {
    res.json(review);
 }));
 
+router.get("/", asyncHandler( async(req, res, next) => {
+    try {
+        const products = await Product.findAll()
+        res.json({products: products})
+    } catch (e) {
+        next(e)
+    }
+}));
+
 module.exports = router

@@ -1,29 +1,32 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllCartItems, buyItems, removeItemFromTheCart } from '../../store/cart';
+import { fetchAllCartItems, removeItemFromTheCart } from '../../store/cart';
 
 
 const SingleCartItem = ({cartId, cartItem, }) => {
     const user = useSelector(state => state.session.user);
-    const itemINeed = useSelector(state => state.cartItems)
+    const cart = useSelector(state => state.cart)
+    // console.log(cartItem)
+    // const cartItems = Object.values(cart)
     const dispatch = useDispatch();
     const [ quantity, setQuantity ] = useState(1);
-    
-    console.log(user.id)
+    // const neededItem = cartItems.map(item => {
+    //     return item.productId }
+    // )
 
     const handleRemoveClick = async () => {
-        await dispatch(removeItemFromTheCart(cartId))
+        await dispatch(removeItemFromTheCart(cartItem.id))
         setQuantity(quantity === 0)
     }
+
     useEffect(()=>{
         dispatch(fetchAllCartItems(user.id))
-    }, [quantity])
-
-
+    }, [user.id, quantity, dispatch])
 
     const quantityAddition = () => {
         return setQuantity(quantity + 1);
     }
+
     const quantitySubtraction = () => {
         if (quantity >= 2) {
         return setQuantity(quantity - 1);
@@ -57,15 +60,12 @@ const SingleCartItem = ({cartId, cartItem, }) => {
 const CartItemsList = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    useEffect(async () => {
-        await dispatch(
+    useEffect(() => {
+        dispatch(
             fetchAllCartItems(user.id)
             );
-    }, []);
+    }, [dispatch, user.id]);
 
-    const myCartItems = useSelector(fullReduxState => {
-        return Object.values(fullReduxState)
-    })
 
     //useEffect, transform cart from redux, add all cart items as dependency if items
     // already exists product.id
@@ -73,15 +73,13 @@ const CartItemsList = () => {
         return Object.values(fullReduxState.cart);
     });
 
-    console.log(myCartItems[2])
     return (
         <div>
             {allCartItems && allCartItems.map((cartObject) => {
-                // console.log(cartObject)
                 return (
                     <SingleCartItem 
                         cartItem={cartObject.Product} key={cartObject.id}
-                        cartId={cartObject.id} key={cartObject.id}
+                        cartId={cartObject.id}
                     ></SingleCartItem>     
                 )
             })}

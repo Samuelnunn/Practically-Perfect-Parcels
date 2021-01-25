@@ -12,6 +12,27 @@ const addToCart = (item) => {
     };
 };
 
+export const buyItems = (id) => {
+    return {
+        type: BUY_ITEMS,
+        payload: id
+    };
+};
+
+const removeItem = (productId) => {
+    return {
+        type: REMOVE_ITEM_FROM_THE_CART,
+        payload: productId
+    };
+};
+
+const getCartItems = (cartItems) => {
+    return {
+        type: ITEMS_IN_THE_CART,
+        cartItems: cartItems,
+    };
+};
+
 export const addItemToTheCart = (cartId, productId, shopperId, price) => { 
     return async(dispatch) => {
         const response = await fetch(`/api/shoppingcarts`, {
@@ -30,21 +51,6 @@ export const addItemToTheCart = (cartId, productId, shopperId, price) => {
     }   
 }
 
-export const buyItems = (id) => {
-    return {
-        type: BUY_ITEMS,
-        payload: id
-    };
-};
-
-
-const getCartItems = (cartItems) => {
-    return {
-        type: ITEMS_IN_THE_CART,
-        cartItems: cartItems,
-    };
-};
-
 export const fetchAllCartItems = (id) => {
     return async (dispatch) => {
         const response = await fetch(`/api/shoppingcarts/${id}`);
@@ -53,13 +59,6 @@ export const fetchAllCartItems = (id) => {
         );
     };
 };
-
-const removeItem = (item) => {
-    return {
-        type: REMOVE_ITEM_FROM_THE_CART,
-        payload: item
-    }
-}
 
 export const removeItemFromTheCart = (id) => async (dispatch) => {
     const response = await fetch(`/api/shoppingcarts/${id}`, {

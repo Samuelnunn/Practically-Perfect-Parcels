@@ -5,19 +5,12 @@ import { addItemToTheCart } from '../../store/cart';
 import { addReviewToThePage } from '../../store/reviews';
 import './ProductList.css';
 
-
-
-
-
-
 const Product = ({oneProduct}) => {
     const dispatch = useDispatch();
     const userId = useSelector(state => state.session.user.id);
     const [cartId ] = useState(1);
     const [review, setReview] = useState('');
 
-   
-    
     // useEffect(() => {
     //     const singleProductId = oneProduct.id;
     //     dispatch(addReviewToThePage(singleProductId, userId, review))    
@@ -36,24 +29,22 @@ const Product = ({oneProduct}) => {
         dispatch(addReviewToThePage(singleProductId, userId, review))
     }
 
-    
-
     return (
         <div className="products-list">
                 <p>{oneProduct.productName}</p>
-                {console.log(oneProduct.id)}
-                <img src={`../../assets/Practically-perfect-pics/${oneProduct.id}.JPG`} />
+                <img className='product-pics' src={`/${oneProduct.id}.jpg`} alt={oneProduct.id} />
                 <p>{oneProduct.productDescription}</p>
                 <p>{oneProduct.price}</p>
+                <p>{review}</p>
                 <div>
-                    <input type='text' name='review' id='review'
+                    <input type='textarea' name='review' id={review.id}
                     placeholder='Write a Review'
-                     value={review} onchange={e => { setReview(e.target.value) }}
+                     value={review} onChange={e => { setReview(e.target.value) }}
                     >
                     </input>
                     {<button onClick={handleReviewClick}>Submit Review</button>}
                 </div>
-            <button  class='button' onClick={handleClick}>Add to cart</button> 
+            <button  className='button' onClick={handleClick}>Add to cart</button> 
         </div>
     )
 }
@@ -65,12 +56,12 @@ const ProductsList = () => {
         return fullReduxState.products;
     });
 
-    useEffect(async () => {
+    useEffect(() => {
         const productFetch = fetchAllProducts();
         dispatch(
             productFetch
         );
-    }, []);
+    }, [dispatch]);
 
     return (
 

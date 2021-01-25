@@ -31,7 +31,7 @@ function SignupFormPage() {
 
     return (
         <div>
-            <h1 class='title-of-page'>Practically Perfect Parcels</h1>
+            <h1 className='title-of-page'>Practically Perfect Parcels</h1>
         <div className={'container'}>
         <form onSubmit={handleSubmit}>
             <ul className={'input-field'}>
