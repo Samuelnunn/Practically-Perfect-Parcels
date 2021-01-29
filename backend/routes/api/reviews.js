@@ -27,11 +27,23 @@ router.get("/", asyncHandler( async(req, res, next) => {
 }));
 
 router.delete('/', asyncHandler ( async(req, res, next) => {
-    const reviewToDelete = req.body.reviewerId
+    const reviewToDelete = req.body.reviewerId;
     const deleteReview = await Review.findByPk(reviewToDelete);
     await deleteReview.destroy(); 
     res.json({
         message: 'All reviews deleted'
+    });
+}));
+
+
+router.patch('/', asyncHandler ( async(req, res, next) => {
+    const reviewToUpdate = req.body.reviewerId;
+    const editReview = await Review.findByPk(reviewToUpdate);
+    await editReview.update({
+        reviewText
+    }); 
+    res.json({
+        message: 'Review Updated'
     });
 }));
 

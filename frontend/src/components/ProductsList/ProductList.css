@@ -1,10 +1,10 @@
 .products-list {
     background-color: rgba(255, 255, 255, 0.5);
-    height: auto;
+    height: 800px;
     width: 600px;
     display: flex;
     /* flex-wrap: wrap; */
-    /* margin: 200px; */
+    /* margin-left: 50px; */
     padding: 100px;
     flex-direction: column;
     justify-content: space-between;
@@ -12,25 +12,32 @@
     border-radius: 5px;
     /* box-shadow: 10px 10px 8px 8px rgba(39, 58, 228, 0.30); */
     word-break: normal;
+    font-size: 0.9em;
 }
 
-
+.card-back{
+    /* margin-left: 50px; */
+}
 
 .flippy-card{
     height: 800px;
     width: 600px;
+    /* margin-left: 50px; */
+
     
 }
 
 .product-pics{
    width: 300px;
    height: 300px; 
+
    
 }
 
 
 #font-card{
     margin-top: 500px;
+    /* margin-left: 50px; */
 }
 
 
@@ -38,7 +45,8 @@
     height: 800px;
     background-color: #aac5d1;
     color: white;
-    
+    /* font-size: 1.2em; */
+    /* margin-left: 50px; */
    
 }
 

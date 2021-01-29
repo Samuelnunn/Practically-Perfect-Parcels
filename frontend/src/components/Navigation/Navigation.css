@@ -43,5 +43,12 @@ html, body {
    grid-column: 5fr;
 }
 
+.homeButton{
+   display: flex; 
+   height: 100px; 
+   width: 100px;
+   border-radius: 50%;
+}
+
 
 

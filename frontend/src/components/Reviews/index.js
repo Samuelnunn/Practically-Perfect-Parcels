@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import reviewReducer, { fetchAllReviews, removeAReview, addReviewToThePage } from '../../store/reviews';
+import reviewReducer, { fetchAllReviews, removeAReview, addReviewToThePage, editAReview } from '../../store/reviews';
 
 
 const ProductReviews = ({oneProduct}) => {
@@ -27,6 +27,12 @@ const ProductReviews = ({oneProduct}) => {
         const reviewToRemove = e.target.value;
         await dispatch(removeAReview(reviewToRemove));
     };
+    
+    const handleEditClick = async (e) => {
+        e.preventDefault();
+        const reviewToEdit= e.target.value;
+        await dispatch(reviewToEdit(reviewToEdit));
+    };
 
     const handleReviewClick = (e) => {
         e.preventDefault();
@@ -42,6 +48,7 @@ const ProductReviews = ({oneProduct}) => {
         return setErrors(['Review field must be filled out']);
     };
 
+
     // logic to edit/delete review.reviewerId === userId
 
     return (
@@ -54,7 +61,8 @@ const ProductReviews = ({oneProduct}) => {
                         <>
                             <div id='single-review'>
                                 <p>{review.reviewText}</p>
-                                <button onClick={handleDeleteClick} value={review.id}>Delete Review</button>
+                                <button onClick={handleDeleteClick} value={review.id} >Delete Review</button>
+                                <button onClick={handleEditClick} value={review.id}>Edit Review</button>
                             </div>
                         </>
                     )
