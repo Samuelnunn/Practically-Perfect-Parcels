@@ -1,27 +1,38 @@
 const express = require('express');
 const router = express.Router();
-const { User, Review } = require('../../db/models');
+const { User, Review, Product } = require('../../db/models');
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next)
 
 router.post(`/`, asyncHandler( async(req, res, next) => {
     const {  productId, reviewerId, reviewText  } = req.body;
     console.log(req.body);
-    const review = await Review.create({
+    await Review.create({
         productId,
         reviewerId,
         reviewText
     },
    )
-   res.json(review);
+   const review = await Review.findAll()
+   res.json({
+       review: review
+    });
 }));
 
 router.get("/", asyncHandler( async(req, res, next) => {
-    try {
-        const products = await Product.findAll()
-        res.json({products: products})
-    } catch (e) {
-        next(e)
-    }
+    // const productId = req.params.id
+    const review = await Review.findAll({});
+    res.json({
+        review: review,
+    })
 }));
 
-module.exports = router
+router.delete('/', asyncHandler ( async(req, res, next) => {
+    const reviewToDelete = req.body.reviewerId
+    const deleteReview = await Review.findByPk(reviewToDelete);
+    await deleteReview.destroy(); 
+    res.json({
+        message: 'All reviews deleted'
+    });
+}));
+
+module.exports = router;

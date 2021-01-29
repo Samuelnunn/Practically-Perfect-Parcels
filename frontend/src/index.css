@@ -1,4 +1,11 @@
 /* TODO Add site wide styles */
+@font-face {
+  font-family: "River";
+  src: local("River"), url("./fonts/RIVERFLOWS.ttf"), format("truetype");
+  font-weight: normal;
+}
+
+
 * {
     box-sizing: border-box;
 }
@@ -7,20 +14,23 @@
 }
 
 html {
-    margin: 0;
-    padding: 0;
-    background: radial-gradient(circle, rgba(219,226,239,1) 2%, rgba(63,114,175,1) 100%);
-    display: flex;
-    overflow-x: hidden;
-    justify-content: center;
-    align-items: center;
-    color:  #f9f7f7;
+
+    background: #88A9BC;
+    /* overflow-x: hidden; */
+    /* justify-content: center;
+    align-items: center; */
+    color: white;
     font-family: 'Headland One', serif;
     font-family: 'Merriweather', serif;
+    /* font-family: River, serif */
     /* background-image: url('https://pngtree.com/so/blue-clipart'); */
 }
 
-
+div.cart-component{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
 
 ul li{
     list-style-type: none;
@@ -29,6 +39,8 @@ ul li{
 .homeButton {
    border-radius: 50%;
 }
+
+
 
 
 

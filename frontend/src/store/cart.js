@@ -65,10 +65,11 @@ export const removeItemFromTheCart = (id) => async (dispatch) => {
         method: 'DELETE'
     });
     if (response.ok) {
+        console.log("cart item", id)
     dispatch(removeItem(id))
-    }
+    };
     return response
-}
+};
 
 const initialState = {};
 
@@ -90,8 +91,15 @@ const cartReducer = (state = initialState, action) => {
             return newState;
         case REMOVE_ITEM_FROM_THE_CART: 
             newState = {...state}
-            delete newState[action.item]
-            return newState;
+            console.log("PAYLOAD!", state)
+            let newCart = Object.values(state).filter(item => {
+                console.log("ITEM", item)
+                return item.id !== action.payload 
+            }
+            )
+            // delete newState[action.payload]
+            console.log("NEW CART", newCart)
+            return newCart;
         default:
             return state;
         };

@@ -31,10 +31,9 @@ function SignupFormPage() {
 
     return (
         <div>
-            <h1 className='title-of-page'>Practically Perfect Parcels</h1>
         <div className={'container'}>
         <form onSubmit={handleSubmit}>
-            <ul className={'input-field'}>
+            <ul className={'input-field'} className={'form'}>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <h2 className={'login-text'}>Sign Up</h2>

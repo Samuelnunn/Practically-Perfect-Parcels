@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-
+import './fonts/RIVERFLOWS.ttf'; 
 import { restoreCSRF, fetch } from './store/csrf';
 import * as sessionActions from './store/session';
 

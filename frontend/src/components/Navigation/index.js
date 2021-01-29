@@ -14,10 +14,18 @@ function Navigation({ isLoaded }){
     );
   } else {
     sessionLinks = (
-      <>
-        <NavLink className="navigationButtons" to="/login">Log In</NavLink>
-        <NavLink className="navigationButtons" to="/signup">Sign Up</NavLink>
-      </>
+      <div className="main-div">
+        <div className="castle">
+          <img className='product-pics' src={`/castle.png`} />
+            <div className='nav-buttons'>
+            <NavLink className="navigationButtons" to="/login">Log In</NavLink>
+            <NavLink className="navigationButtons" to="/signup">Sign Up</NavLink>
+            </div>
+        </div>
+        <div className="logo-div">
+          <img className='product-pics' src={`/logo.png`} />
+        </div>
+        </div>
     );
   }
 

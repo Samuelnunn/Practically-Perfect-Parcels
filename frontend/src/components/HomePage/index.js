@@ -16,12 +16,6 @@ const Home = () => {
             </div>
             { sessionUser && <h3>Welcome {sessionUser.username}, we hope you are having a practically perfect day!</h3>}
                 <ProductsList />
-
-            <div className='shoppingcart'> 
-                <button className='cart-button'>I am a cart</button>
-                <div className='shopping-cart'>
-                </div>
-            </div>
         </div>
     )  
 }

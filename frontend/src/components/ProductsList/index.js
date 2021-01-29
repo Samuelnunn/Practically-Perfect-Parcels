@@ -2,14 +2,24 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllProducts} from '../../store/products';
 import { addItemToTheCart } from '../../store/cart';
-import { addReviewToThePage } from '../../store/reviews';
+import { addReviewToThePage, fetchAllReviews } from '../../store/reviews';
+import ProductReviews from '../Reviews';
 import './ProductList.css';
+import FlipCard from 'fc-card-component';
+
+
 
 const Product = ({oneProduct}) => {
     const dispatch = useDispatch();
     const userId = useSelector(state => state.session.user.id);
     const [cartId ] = useState(1);
-    const [review, setReview] = useState('');
+
+    useEffect(() => {
+        const reviewFetch = fetchAllReviews();
+        dispatch(
+            reviewFetch
+            );
+    }, [dispatch]);
 
     // useEffect(() => {
     //     const singleProductId = oneProduct.id;
@@ -21,31 +31,40 @@ const Product = ({oneProduct}) => {
         const singleProductId = oneProduct.id;
         const neededPrice = oneProduct.price;
         dispatch(addItemToTheCart(cartId, singleProductId, userId, neededPrice));
-    }
+    };
 
-    const handleReviewClick = (e) => {
-        e.preventDefault();
-        const singleProductId = oneProduct.id;
-        dispatch(addReviewToThePage(singleProductId, userId, review))
-    }
+
 
     return (
-        <div className="products-list">
-                <p>{oneProduct.productName}</p>
+        <FlipCard
+        id="font-card"
+        className='flippy-card'
+        height={800}
+        width={600}
+        rotationAxis="y"
+        // colorFront="yellow"
+        // textColorFront="cream"
+        textFront={
+            <div className="products-list" id="front-card">
+                <p id='hellothere'>{oneProduct.productName}</p>
                 <img className='product-pics' src={`/${oneProduct.id}.jpg`} alt={oneProduct.id} />
                 <p>{oneProduct.productDescription}</p>
-                <p>{oneProduct.price}</p>
-                <p>{review}</p>
-                <div>
-                    <input type='textarea' name='review' id={review.id}
-                    placeholder='Write a Review'
-                     value={review} onChange={e => { setReview(e.target.value) }}
-                    >
-                    </input>
-                    {<button onClick={handleReviewClick}>Submit Review</button>}
-                </div>
-            <button  className='button' onClick={handleClick}>Add to cart</button> 
         </div>
+        }
+        textBack={
+            <div className="products-list" id="back-card">
+                <p>{oneProduct.price}</p>
+                <ProductReviews oneProduct={oneProduct} />
+                <button  className='button' onClick={handleClick}>Add to cart</button> 
+            </div>
+        }
+        // innerPadding={20}
+        fontSize={27}
+        colorFront="yellow"
+        textColorFront="cream"
+        >
+        
+        </FlipCard>
     )
 }
 

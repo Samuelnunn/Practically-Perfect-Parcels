@@ -1,10 +1,11 @@
+
+
 #root {
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
-
 .login-container {
-    background-color: #3F72AF;
+  background-color: rgba(255, 255, 255, 0.5);
     height: 440px;
     width: 520px;
     margin: 0 auto;
@@ -14,8 +15,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0.9;
-    padding-bottom: 30px;
+    /* opacity: 0.9; */
+    padding: 30px;
     border-top: 60px;
 
 }
@@ -28,15 +29,23 @@
 .input-field {
   position: relative;
   margin-bottom: 30px;
-  width: 340px;
-  opacity: 0.7;
+  width: 300px;
+  /* opacity: 0.7; */
   margin-left: 20px;
-  
 }
 
-
-
-
+input {
+  box-sizing: border-box;
+  background: transparent;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #dbe2ef;
+  margin-left: 50px;
+  padding: 20px 6px 12px 36px;
+  font-size: 19px;
+  outline: none;
+ color: #dbe2ef;
+}
 
 .button {
   position:relative;
@@ -50,7 +59,7 @@
   margin-bottom: -30px; 
   box-shadow: 0px 4px 15px -5px rgba(0,0,0,0.65);
   color: #112d4e;
-  opacity: 0.9;
+  /* opacity: 0.9; */
 }
 
 .button:hover {
@@ -83,8 +92,7 @@ input {
     padding: 20px 6px 12px 36px;
     font-size: 19px;
     outline: none;
-   color: #dbe2ef;
- 
+   color: white
 }
 
 
@@ -94,4 +102,5 @@ input {
   position: relative;
   opacity: 0.6;
   left: 43%;
+  size: 100px;
 }

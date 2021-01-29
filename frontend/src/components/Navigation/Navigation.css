@@ -1,5 +1,4 @@
 #top-navigation-bar {
-    
    margin: 0;
    padding: 0;
    position: relative;
@@ -8,5 +7,41 @@
 
 .navigationButtons {
 display: flex;
-justify-content: space-around;
+justify-content: space-between;
+text-decoration: none;
+border-radius: 30%;
+width: 100px;
+padding: 10px;
+float: right;
+margin: 10px
 }
+
+
+
+.navigationButtons:hover{
+   transform: scale(1.2);
+}
+
+.castle{
+   float: right;
+}
+
+/* body{
+   background: linear-gradient(90deg,  #88A9BC 70%, #ffffff 30% );
+} */
+
+body {
+   background: linear-gradient(90deg,  #88A9BC 70%, #ffffff 30% );
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+html, body {
+   margin: 0;
+   height: 100%;
+   display: grid;
+   grid-column: 5fr;
+}
+
+
+
