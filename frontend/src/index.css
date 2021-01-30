@@ -14,7 +14,9 @@
 }
 
 html {
-
+    /* display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr); */
     background: #88A9BC;
     /* overflow-x: hidden; */
     /* justify-content: center;

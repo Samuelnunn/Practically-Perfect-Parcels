@@ -15,22 +15,22 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <div className="main-div">
-        <div className="castle">
-          <img className='product-pics' src={`/castle.png`} />
-            <div className='nav-buttons'>
-            <NavLink className="navigationButtons" to="/login">Log In</NavLink>
-            <NavLink className="navigationButtons" to="/signup">Sign Up</NavLink>
+        <div id="castle">
+          {/* <img className='product-pics' src={`/castle.png`} /> */}
+            <div className='nav-buttons' id='signup-login'>
+              <NavLink id='login-button' className="navigationButtons" to="/login">Log In</NavLink>
+              <NavLink id='signup-button' className="navigationButtons" to="/signup">Sign Up</NavLink>
             </div>
         </div>
         <div className="logo-div">
-          <img className='product-pics' src={`/logo.png`} />
+          <img id='logo-pic' src={`/logo.png`} />
         </div>
         </div>
     );
   }
 
   return (
-    <ul id='top-navigation-bar'>
+    <ul className='top-navigation-bar'>
       <li>
         <NavLink className="navigationButtons" to="/home" >
         <img src="https://d1fdloi71mui9q.cloudfront.net/tvlc0BuRtq419gf3E6w7_5WATz9hU3H8m5Q8g"

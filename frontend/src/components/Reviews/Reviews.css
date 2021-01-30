@@ -1,0 +1,44 @@
+.reviewButton{
+    background-color: #dbe2ef;
+    border: none;
+    border-radius: 30px; 
+    font-size: 16px;
+    padding: 4px 8px;
+    margin-top: 10px;
+    margin-left: 100px;
+    margin-bottom: -30px; 
+    box-shadow: 0px 4px 15px -5px rgba(0,0,0,0.65);
+    color: #112d4e;
+    opacity: 0.9;
+    flex-direction: row;
+    outline: none;
+}
+
+.reviewButton:hover{
+    background-color: #112d4e;
+    color: #dbe2ef;
+    transition: 0.5s;
+}
+
+.reviewButton:active{
+    box-shadow: none;
+    border-radius: none;
+    background-color: white;
+    outline: none;
+    color:  #112d4e;
+}
+
+#single-review{
+    /* border: white;
+    border-style: solid;
+    padding: 200px; */
+}
+
+.review-area{
+height: 100px;
+width: 350px;
+opacity: 0.3;
+    border: white;
+    border-style: solid;
+    border: 1px
+}

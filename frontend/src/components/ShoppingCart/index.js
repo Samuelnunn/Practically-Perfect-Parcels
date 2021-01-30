@@ -85,6 +85,7 @@ const CartItemsList = () => {
                         ></SingleCartItem>
                     </>     
                 )
+
             })}
         </div>
     )

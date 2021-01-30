@@ -30,7 +30,10 @@
 .product-pics{
    width: 300px;
    height: 300px; 
-
+   border: white;
+   /* border-radius: 50%; */
+   border-style: solid;
+   border-color: white;
    
 }
 

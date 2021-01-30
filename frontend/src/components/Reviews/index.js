@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import reviewReducer, { fetchAllReviews, removeAReview, addReviewToThePage, editAReview } from '../../store/reviews';
+import './Reviews.css'
 
 
 const ProductReviews = ({oneProduct}) => {
@@ -25,7 +26,7 @@ const ProductReviews = ({oneProduct}) => {
     const handleDeleteClick = async (e) => {
         e.preventDefault();
         const reviewToRemove = e.target.value;
-        await dispatch(removeAReview(reviewToRemove));
+        return dispatch(removeAReview(reviewToRemove));
     };
     
     const handleEditClick = async (e) => {
@@ -61,8 +62,8 @@ const ProductReviews = ({oneProduct}) => {
                         <>
                             <div id='single-review'>
                                 <p>{review.reviewText}</p>
-                                <button onClick={handleDeleteClick} value={review.id} >Delete Review</button>
-                                <button onClick={handleEditClick} value={review.id}>Edit Review</button>
+                                <button className='reviewButton' onClick={handleDeleteClick} value={review.id} >Delete Review</button>
+                                <button className='reviewButton' onClick={handleEditClick} value={review.id}>Edit Review</button>
                             </div>
                         </>
                     )
@@ -73,8 +74,7 @@ const ProductReviews = ({oneProduct}) => {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
                 <textarea
-                    rows='10'
-                    value='10' 
+                    className='review-area'
                     name='review' 
                     id={review.id}
                     placeholder='Write a Review'
@@ -83,7 +83,7 @@ const ProductReviews = ({oneProduct}) => {
                     required
                 >
                 </textarea>
-                {<button onClick={handleReviewClick}>Submit Review</button>
+                {<button className='reviewButton' onClick={handleReviewClick}>Submit Review</button>
                 }
             </div>
         </div>
