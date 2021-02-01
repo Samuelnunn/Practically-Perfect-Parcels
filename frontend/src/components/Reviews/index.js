@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import reviewReducer, { fetchAllReviews, removeAReview, addReviewToThePage, editAReview } from '../../store/reviews';
+import reviewReducer, { fetchAllReviews, removeAReview, addReviewToThePage, getAUser } from '../../store/reviews';
 import './Reviews.css'
 
 
@@ -10,22 +10,36 @@ const ProductReviews = ({oneProduct}) => {
         return state.review.review
     });
     const userId = useSelector(state => state.session.user.id);
+    const userName = useSelector(state => state.session.user.username);
+    const myReviews = useSelector(state => {
+        return state;
+    })
+    // console.log(myReviews)
 
     const [review, setReview] = useState("");
     const [errors, setErrors] = useState([]);
-
+    const [reviewDelete, setReviewDelete] = useState([])
+    
+    useEffect(() => {
+        const userFetch = getAUser;
+        console.log("HELLLO", userFetch)
+        dispatch(userFetch)
+    }, [dispatch])
     useEffect(() => {
         const reviewFetch = fetchAllReviews();
         dispatch(reviewFetch)
-    }, [dispatch, review]);
+    }, [dispatch, review, reviewDelete]);
+    
 
     // if(review.length === 0) {
     //     return <h3>There are no reviews for this product!</h3>
     // }
 
     const handleDeleteClick = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const reviewToRemove = e.target.value;
+        setReviewDelete(reviewToRemove)
+        console.log(reviewDelete)
         return dispatch(removeAReview(reviewToRemove));
     };
     
@@ -58,12 +72,13 @@ const ProductReviews = ({oneProduct}) => {
             {!allReviews && <h3>There are no reviews for this product yet</h3>}
             {allReviews && allReviews.map(review => {
                 if (oneProduct.id === review.productId) {
+                    // console.log(oneProduct, review)
                     return (
                         <>
                             <div id='single-review'>
-                                <p>{review.reviewText}</p>
+                                <p>{userName}: {review.reviewText}</p>
                                 <button className='reviewButton' onClick={handleDeleteClick} value={review.id} >Delete Review</button>
-                                <button className='reviewButton' onClick={handleEditClick} value={review.id}>Edit Review</button>
+                                {/* <button className='reviewButton' onClick={handleEditClick} value={review.id}>Edit Review</button> */}
                             </div>
                         </>
                     )

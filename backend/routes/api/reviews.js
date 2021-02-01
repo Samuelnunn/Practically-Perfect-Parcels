@@ -25,6 +25,12 @@ router.get("/", asyncHandler( async(req, res, next) => {
         review: review,
     })
 }));
+router.get("/", asyncHandler( async(req, res, next) => {
+    const review = await User.findAll({});
+    res.json({
+        username: username,
+    })
+}));
 
 router.delete('/', asyncHandler ( async(req, res, next) => {
     const reviewToDelete = req.body.reviewerId;
