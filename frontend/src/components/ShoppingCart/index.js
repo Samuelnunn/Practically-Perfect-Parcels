@@ -39,7 +39,7 @@ const SingleCartItem = ({cartId, cartItem }) => {
         <>
             <div className='cart-container'> 
                 <div className='cart-component'> 
-                    <h3><span className="shopping-cart">{ `${cartItem.productName}: ${cartItem.price}` }</span></h3>
+                    <h3 className='shopping-cart-top'><span className="shopping-cart">{ `${cartItem.productName}: ${cartItem.price}` }</span></h3>
                         <div>   
                             <img className='product-pics' src={`/${cartItem.id}.jpg`} alt={cartItem.id} />
                         </div>

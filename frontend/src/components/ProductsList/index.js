@@ -42,8 +42,6 @@ const Product = ({oneProduct}) => {
         height={800}
         width={600}
         rotationAxis="y"
-        // colorFront="yellow"
-        // textColorFront="cream"
         textFront={
             <div className="products-list" id="front-card">
                 <p id='hellothere'>{oneProduct.productName}</p>

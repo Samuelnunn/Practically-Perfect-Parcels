@@ -13,19 +13,22 @@
     /* box-shadow: 10px 10px 8px 8px rgba(39, 58, 228, 0.30); */
     word-break: normal;
     font-size: 0.9em;
+    /* margin-left: 100px; */
 }
 
 .card-back{
-    /* margin-left: 50px; */
+    /* margin-left: 100px; */
 }
 
 .flippy-card{
     height: 800px;
     width: 600px;
-    /* margin-left: 50px; */
+    /* margin-left: 100px; */
 
     
 }
+
+
 
 .product-pics{
    width: 300px;
@@ -49,7 +52,7 @@
     background-color: #aac5d1;
     color: white;
     /* font-size: 1.2em; */
-    /* margin-left: 50px; */
+    /* margin-left: 100px; */
    
 }
 

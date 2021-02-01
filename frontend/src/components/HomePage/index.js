@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ProductsList from '../ProductsList'
+import './Homepage.css'
 
 const Home = () => {
     const sessionUser = useSelector(state => {
@@ -11,11 +12,13 @@ const Home = () => {
         <div>
             <div>
                 <div id="home-page-container">
-                    <NavLink to='/shoppingcarts'> Shopping Cart</NavLink>
+                    <NavLink to='/shoppingcarts' className='shopping-cart-text'> Shopping Cart</NavLink>
                 </div>
             </div>
-            { sessionUser && <h3>Welcome {sessionUser.username}, we hope you are having a practically perfect day!</h3>}
-                <ProductsList />
+            { sessionUser && <h3 className='welcome-text'>Welcome {sessionUser.username}, we hope you are having a practically perfect day!</h3>}
+                <div className='whole-page'>
+                    <ProductsList />
+                </div>
         </div>
     )  
 }

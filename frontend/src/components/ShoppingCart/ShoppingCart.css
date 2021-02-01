@@ -17,7 +17,7 @@
     height: auto;
     width: 520px;
     margin-bottom: 20px;
-    margin-left: 50px;
+    margin-left: 150px;
     border-radius: 5px;
     box-shadow: 10px 10px 8px 8px rgba(39, 58, 228, 0.30);
     display: grid;
@@ -82,7 +82,7 @@
     font-size: 16px;
     padding: 16px 36px;
     margin-top: 20px;
-    margin-left: 48px;
+    margin-left: 58px;
     margin-bottom: -30px; 
     box-shadow: 0px 4px 15px -5px rgba(0,0,0,0.65);
     color: #112d4e;
@@ -109,8 +109,8 @@
   }
 
   .quantity{
-    margin-left: 45px;
-
+    margin-left: 50px;
+    /* justify-content: space-around; */
   }
  
   .checkout{
@@ -119,3 +119,9 @@
     background-color: rgba(255, 255, 255, 0.5);
     
   }
+
+  .shopping-cart-top{
+    margin-left: 19px;
+  }
+
+ 
