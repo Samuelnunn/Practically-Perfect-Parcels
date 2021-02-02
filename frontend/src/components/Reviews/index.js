@@ -62,8 +62,8 @@ const ProductReviews = ({oneProduct}) => {
         }
         return setErrors(['Review field must be filled out']);
     };
-
-
+let a = 5;
+console.log(++a);
     // logic to edit/delete review.reviewerId === userId
 
     return (
