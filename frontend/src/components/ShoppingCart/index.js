@@ -73,6 +73,7 @@ const CartItemsList = () => {
     const allCartItems = useSelector(fullReduxState => {
         return Object.values(fullReduxState.cart);
     });
+    allCartItems.pop()
 
     return (
         <div>

@@ -14,12 +14,6 @@ const Product = ({oneProduct}) => {
     const userId = useSelector(state => state.session.user.id);
     const [cartId ] = useState(1);
 
-    useEffect(() => {
-        const reviewFetch = fetchAllReviews();
-        dispatch(
-            reviewFetch
-            );
-    }, [dispatch]);
 
     // useEffect(() => {
     //     const singleProductId = oneProduct.id;

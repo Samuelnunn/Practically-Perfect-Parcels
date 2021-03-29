@@ -23,7 +23,17 @@ function LoginFormPage() {
             .catch((res) => {
                 if (res.data && res.data.errors) setErrors(res.data.errors);
             });
-    }
+    };
+
+    const demoLogin = async (e) => {
+        e.preventDefault();
+        setErrors([]);
+        return dispatch(sessionActions.login({ credential: "demo@user.io", password: "password" }))
+        .catch((res) => {
+            if (res.data && res.data.errors) setErrors(res.data.errors);
+        });
+    };
+
 
     return (
         <div className={'login-container'}>
@@ -52,6 +62,7 @@ function LoginFormPage() {
             </label>
             <div className={'col-md-3 col-sm-3 cox-xs-6'}>
             <button type="submit" className={'button btn-sm animated-button'}>Log In</button>
+            <button type='button' className={'button btn-sm animated-button'} onClick={demoLogin} >Demo</button>
             </div>
         </form>
         </div>

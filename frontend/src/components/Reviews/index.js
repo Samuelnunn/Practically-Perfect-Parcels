@@ -22,18 +22,15 @@ const ProductReviews = ({oneProduct}) => {
     
     useEffect(() => {
         const userFetch = getAUser;
-        console.log("HELLLO", userFetch)
         dispatch(userFetch)
-    }, [dispatch])
-    useEffect(() => {
-        const reviewFetch = fetchAllReviews();
-        dispatch(reviewFetch)
-    }, [dispatch, review, reviewDelete]);
+    }, [dispatch]);
+
+    // useEffect(() => {
+    //     const reviewFetch = fetchAllReviews();
+    //     dispatch(reviewFetch)
+    // }, [dispatch, review, reviewDelete]);
     
 
-    // if(review.length === 0) {
-    //     return <h3>There are no reviews for this product!</h3>
-    // }
 
     const handleDeleteClick = async (e) => {
         // e.preventDefault();

@@ -117,7 +117,7 @@ module.exports = {
       },
       {
         productName: 'The Princess Box',
-        productDescription: 'Who needs a prince when you can have a personally curated princess parcel delivered to your castle',
+        productDescription: 'Who needs a prince when you can have a personally curated princess parcel delivered to your castle1',
         price: '$65.00',
         createdAt: new Date(),
         updatedAt: new Date(),
