@@ -7,13 +7,15 @@ import Home from './components/HomePage'
 import * as sessionActions from "./store/session";
 import Navigation from './components/Navigation';
 import ProductsList from './components/ProductsList';
-import CartItemsList from './components/ShoppingCart'
+import CartItemsList from './components/ShoppingCart';
+import { fetchAllReviews } from './store/reviews'
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(fetchAllReviews());
   }, [dispatch]);
 
   return (

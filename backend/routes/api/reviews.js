@@ -20,9 +20,13 @@ router.post(`/`, asyncHandler( async(req, res, next) => {
 
 router.get("/", asyncHandler( async(req, res, next) => {
     // const productId = req.params.id
-    const review = await Review.findAll({});
+    const review = await Review.findAll({
+        include: [User]
+    });
+    
     res.json({
         review: review,
+        // user:user
     })
 }));
 router.get("/", asyncHandler( async(req, res, next) => {

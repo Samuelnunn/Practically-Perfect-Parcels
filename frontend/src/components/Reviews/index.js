@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import reviewReducer, { fetchAllReviews, removeAReview, addReviewToThePage, getAUser } from '../../store/reviews';
-import './Reviews.css'
+import DeleteButton from './DeleteButton'
+import './Reviews.css';
 
 
 const ProductReviews = ({oneProduct}) => {
@@ -14,7 +15,7 @@ const ProductReviews = ({oneProduct}) => {
     const myReviews = useSelector(state => {
         return state;
     })
-    // console.log(myReviews)
+    console.log(console.log(userId))
 
     const [review, setReview] = useState("");
     const [errors, setErrors] = useState([]);
@@ -37,7 +38,8 @@ const ProductReviews = ({oneProduct}) => {
         const reviewToRemove = e.target.value;
         setReviewDelete(reviewToRemove)
         console.log(reviewDelete)
-        return dispatch(removeAReview(reviewToRemove));
+        return dispatch(removeAReview(reviewToRemove))
+        .then(() => dispatch(fetchAllReviews()));
     };
     
     const handleEditClick = async (e) => {
@@ -59,8 +61,7 @@ const ProductReviews = ({oneProduct}) => {
         }
         return setErrors(['Review field must be filled out']);
     };
-let a = 5;
-console.log(++a);
+
     // logic to edit/delete review.reviewerId === userId
 
     return (
@@ -69,12 +70,12 @@ console.log(++a);
             {!allReviews && <h3>There are no reviews for this product yet</h3>}
             {allReviews && allReviews.map(review => {
                 if (oneProduct.id === review.productId) {
-                    // console.log(oneProduct, review)
                     return (
                         <>
                             <div id='single-review'>
-                                <p>{userName}: {review.reviewText}</p>
-                                <button className='reviewButton' onClick={handleDeleteClick} value={review.id} >Delete Review</button>
+                                <p>{review.User.firstName}: {review.reviewText}</p>
+                                <DeleteButton review={review}/>
+                                {/* <button className='reviewButton' onClick={handleDeleteClick} value={review.id} >Delete Review</button> */}
                                 {/* <button className='reviewButton' onClick={handleEditClick} value={review.id}>Edit Review</button> */}
                             </div>
                         </>

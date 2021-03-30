@@ -43,7 +43,6 @@ const editReview = (review) => {
 };
 
 export const addReviewToThePage = (productId, reviewerId, reviewText) => {
-    console.log(reviewerId)
     return async(dispatch) => {
         const response = await fetch(`/api/reviews`, {
             method: 'POST',

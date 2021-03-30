@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
@@ -26,8 +26,9 @@ function ProfileButton({ user }) {
 
   const logout = (e) => {
     e.preventDefault();
+    console.log("HELLLOOOOO")
     dispatch(sessionActions.logout());
-    
+    window.location.href='/';
   };
 
   return (

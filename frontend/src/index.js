@@ -7,6 +7,7 @@ import App from './App';
 import './fonts/RIVERFLOWS.ttf'; 
 import { restoreCSRF, fetch } from './store/csrf';
 import * as sessionActions from './store/session';
+import * as reviewActions from './store/reviews';
 
 import configureStore from './store';
 
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.csrfFetch = fetch;
   window.store = store;
   window.sessionActions = sessionActions;
+  window.reviewActions = reviewActions;
 }
 
 if (process.env.NODE_ENV !== 'production') {
